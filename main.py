@@ -4,6 +4,7 @@ from fastapi.security import OAuth2PasswordBearer
 from app.config import settings
 from app.routers.auth import router as auth_router
 from app.routers.resume import router as resume_router
+from app.routers.interview import router as interview_router
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
@@ -16,6 +17,7 @@ app = FastAPI(
 
 app.include_router(auth_router)
 app.include_router(resume_router)
+app.include_router(interview_router)
 
 @app.get("/")
 def root():
